@@ -1105,90 +1105,58 @@
   border-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Academic Section Button - Matches card design */
+/* Academic Section Navigation Button */
 .btn-section {
-  @apply inline-flex items-center justify-center transition-all duration-500 whitespace-nowrap;
-  padding: 1.5rem 2.5rem;
-  border-radius: 1.25rem;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(30, 58, 138, 0.08);
-  box-shadow:
-    0 8px 25px rgba(30, 58, 138, 0.08),
-    0 3px 10px rgba(0, 0, 0, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(10px);
+  @apply inline-flex items-center justify-center transition-all duration-300 whitespace-nowrap;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  backdrop-filter: blur(12px);
   position: relative;
-  overflow: hidden;
   color: var(--academic-navy);
-  font-weight: 600;
-  letter-spacing: 0.025em;
+  font-weight: 500;
+  letter-spacing: 0.02em;
   min-width: fit-content;
+  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.08);
 }
 
 .btn-section::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--academic-navy), var(--academic-blue), var(--academic-light-blue));
+  inset: 0;
+  border-radius: 2rem;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(30, 58, 138, 0.08));
   opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.btn-section::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
-  background-size: 30px 30px;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .btn-section:hover::before {
   opacity: 1;
 }
 
-.btn-section:hover::after {
-  opacity: 1;
-}
-
 .btn-section:hover {
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-2px);
   box-shadow:
-    0 20px 40px rgba(30, 58, 138, 0.12),
-    0 8px 25px rgba(59, 130, 246, 0.08),
-    0 0 0 1px rgba(59, 130, 246, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
-  background: rgba(255, 255, 255, 1);
-  border-color: rgba(59, 130, 246, 0.2);
+    0 8px 25px rgba(59, 130, 246, 0.15),
+    0 3px 10px rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.25);
   color: var(--academic-blue);
 }
 
 .dark .btn-section {
-  background: linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.9));
-  border-color: rgba(59, 130, 246, 0.15);
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(59, 130, 246, 0.2);
   color: var(--academic-light-blue);
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.25),
-    0 3px 10px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .dark .btn-section:hover {
-  background: linear-gradient(145deg, rgba(30, 41, 59, 1), rgba(15, 23, 42, 0.95));
-  border-color: rgba(59, 130, 246, 0.3);
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(59, 130, 246, 0.4);
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.4),
-    0 8px 25px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(59, 130, 246, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    0 8px 25px rgba(0, 0, 0, 0.2),
+    0 3px 10px rgba(59, 130, 246, 0.1);
   color: #60a5fa;
 }
 
@@ -1211,11 +1179,11 @@
 }
 
 .btn-section .btn-icon {
-  transition: transform 0.4s ease;
+  transition: transform 0.3s ease;
 }
 
 .btn-section:hover .btn-icon {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .btn-section .btn-arrow {
@@ -1223,7 +1191,7 @@
 }
 
 .btn-section:hover .btn-arrow {
-  transform: translateX(4px);
+  transform: translateX(2px);
 }
 
 /* Enhanced Dark Mode Card Styles */
