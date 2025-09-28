@@ -1,6 +1,6 @@
 # Project Maxwell
 
-**Project Maxwell** is a research initiative focused on advancing wireless communications through artificial intelligence. This repository contains the official project website showcasing our research papers, team members, and contributions to the field.
+**Project Maxwell** is a research project focused on advancing wireless communications through artificial intelligence. This repository contains the official project website showcasing our research papers, team members, and contributions to the field.
 
 🌐 **Live Website**: [https://project-maxwell.github.io/](https://project-maxwell.github.io/)
 
