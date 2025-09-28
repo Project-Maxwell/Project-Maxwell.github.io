@@ -1,0 +1,247 @@
+/* Custom Styles for Project Maxwell */
+
+/* Grid Pattern Background */
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Button Styles */
+.btn-primary {
+  @apply inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center px-6 py-3 border border-primary-300 dark:border-primary-600 text-base font-medium rounded-xl text-primary-700 dark:text-primary-300 bg-white dark:bg-slate-800 hover:bg-primary-50 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200;
+}
+
+.btn-outline {
+  @apply inline-flex items-center px-6 py-3 border border-slate-300 dark:border-slate-600 text-base font-medium rounded-xl text-slate-700 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200;
+}
+
+/* Navigation Links */
+.nav-link {
+  @apply px-3 py-2 rounded-md text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200;
+}
+
+.nav-link.active {
+  @apply text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-slate-800;
+}
+
+.mobile-nav-link {
+  @apply block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors duration-200;
+}
+
+/* Paper Card Styles */
+.paper-card {
+  @apply bg-white dark:bg-slate-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-slate-200 dark:border-slate-700 p-6;
+}
+
+.paper-card:hover {
+  @apply transform -translate-y-1 transition-transform duration-200;
+}
+
+/* Person Card Styles */
+.person-card {
+  @apply bg-white dark:bg-slate-800 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-slate-200 dark:border-slate-700 p-6 text-center;
+}
+
+.person-card:hover {
+  @apply transform -translate-y-1 transition-transform duration-200;
+}
+
+/* Person Name Card Styles */
+.person-name-card {
+  @apply inline-flex items-center px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 m-2;
+}
+
+.person-name-card:hover {
+  @apply transform -translate-y-0.5 transition-transform duration-200;
+}
+
+/* Avatar Styles */
+.avatar {
+  @apply w-24 h-24 rounded-full mx-auto mb-4 bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-800 dark:to-primary-900 flex items-center justify-center text-primary-600 dark:text-primary-300 font-semibold text-lg;
+}
+
+.avatar-large {
+  @apply w-32 h-32 text-xl;
+}
+
+.avatar-small {
+  @apply w-16 h-16 text-sm;
+}
+
+/* Status Badge Styles */
+.status-badge {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+}
+
+.status-released {
+  @apply bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200;
+}
+
+.status-preprint {
+  @apply bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200;
+}
+
+.status-in_submission {
+  @apply bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200;
+}
+
+/* Keyword Tag Styles */
+.keyword-tag {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-md text-xs font-medium bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200;
+}
+
+/* Link Button Styles */
+.link-btn {
+  @apply inline-flex items-center px-3 py-1.5 text-sm font-medium rounded-lg transition-colors duration-200;
+}
+
+.link-btn-primary {
+  @apply bg-primary-600 text-white hover:bg-primary-700;
+}
+
+.link-btn-secondary {
+  @apply bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600;
+}
+
+/* Social Link Styles */
+.social-link {
+  @apply inline-flex items-center justify-center w-8 h-8 rounded-lg text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors duration-200;
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+  .text-responsive-xl {
+    @apply text-2xl;
+  }
+
+  .text-responsive-2xl {
+    @apply text-3xl;
+  }
+
+  .text-responsive-3xl {
+    @apply text-4xl;
+  }
+}
+
+/* Focus States for Accessibility */
+*:focus {
+  @apply outline-none;
+}
+
+*:focus-visible {
+  @apply ring-2 ring-primary-500 ring-offset-2 dark:ring-offset-slate-900;
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .paper-card,
+  .person-card {
+    @apply shadow-none border border-slate-300;
+  }
+
+  .bg-gradient-to-r,
+  .bg-gradient-to-br {
+    background: white !important;
+    color: black !important;
+  }
+}
+
+/* Loading States */
+.loading {
+  @apply animate-pulse;
+}
+
+.loading-card {
+  @apply bg-slate-200 dark:bg-slate-700 rounded-2xl h-48;
+}
+
+.loading-text {
+  @apply bg-slate-200 dark:bg-slate-700 rounded h-4;
+}
+
+.loading-text-sm {
+  @apply bg-slate-200 dark:bg-slate-700 rounded h-3;
+}
+
+/* Smooth Transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, transform, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-100 dark:bg-slate-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 dark:bg-slate-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-slate-400 dark:bg-slate-500;
+}
+
+/* Selection Colors */
+::selection {
+  @apply bg-primary-200 dark:bg-primary-800 text-slate-900 dark:text-slate-100;
+}
+
+/* Reduce Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
