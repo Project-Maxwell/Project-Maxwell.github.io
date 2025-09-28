@@ -113,7 +113,7 @@ const projectData = {
                 email: null
             },
             photo: null,
-            bio: 'PhD student working on language models and mathematical problem solving in wireless domains.',
+            bio: '',
             order: 3,
             type: 'member',
         },
@@ -130,7 +130,7 @@ const projectData = {
                 email: null
             },
             photo: null,
-            bio: 'Researcher focusing on advanced mathematical modeling techniques for wireless systems.',
+            bio: '',
             order: 4,
             type: 'member',
         },
@@ -147,7 +147,7 @@ const projectData = {
                 email: null
             },
             photo: null,
-            bio: 'Researcher with expertise in signal processing and machine learning for wireless applications.',
+            bio: '',
             order: 5,
             type: 'member',
         },
@@ -164,14 +164,14 @@ const projectData = {
                 email: null
             },
             photo: null,
-            bio: 'Researcher specializing in optimization and algorithmic approaches for wireless networks.',
+            bio: '',
             order: 6,
             type: 'member',
         },
         {
             id: 'chau-yuen',
             name: 'Chau Yuen',
-            role: 'Advisor',
+            role: 'Advisor / Professor',
             affiliation: 'School of EEE, Nanyang Technological University, Singapore',
             links: {
                 homepage: null,
@@ -181,7 +181,7 @@ const projectData = {
                 email: null
             },
             photo: null,
-            bio: 'Professor and research advisor, leading expert in LLMs for wireless communications and intelligent systems.',
+            bio: '',
             order: 8,
             type: 'member'
         }

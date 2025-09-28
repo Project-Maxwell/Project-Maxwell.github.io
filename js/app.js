@@ -205,13 +205,20 @@ class ProjectMaxwellApp {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-fade-in');
+                    // Add staggered animation for cards
+                    const cards = entry.target.querySelectorAll('.paper-card, .person-name-card, .academic-metric');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('animate-slide-up');
+                        }, index * 100);
+                    });
                     observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.paper-card, .person-card, section').forEach(el => {
+        document.querySelectorAll('.paper-card, .person-card, .person-name-card, .academic-metric, section').forEach(el => {
             observer.observe(el);
         });
     }
@@ -262,7 +269,7 @@ class ProjectMaxwellApp {
     // Card Creation Functions
     createPaperCard(paper, isFeatured = false) {
         const card = document.createElement('div');
-        card.className = 'paper-card';
+        card.className = 'paper-card animate-fade-in';
 
         const title = paper.title;
         const subtitle = paper.subtitle;
@@ -271,34 +278,39 @@ class ProjectMaxwellApp {
         card.innerHTML = `
             <div class="flex flex-col h-full">
                 <div class="flex-1">
-                    <div class="flex items-start justify-between mb-3">
+                    <div class="flex items-start justify-between mb-4">
                         <span class="status-badge status-${paper.status}">
                             ${projectData.getStatusText(paper.status, 'en')}
                         </span>
-                        <span class="text-sm text-slate-500 dark:text-slate-400">${paper.year}</span>
+                        <div class="text-right">
+                            <div class="venue-badge mb-1">${paper.year}</div>
+                            ${paper.venue ? `<div class="academic-caption text-xs text-slate-500 dark:text-slate-400">${paper.venue}</div>` : ''}
+                        </div>
                     </div>
 
-                    <h3 class="text-xl font-semibold text-slate-900 dark:text-white mb-2">
+                    <h3 class="academic-heading text-xl font-semibold text-slate-900 dark:text-white mb-3 leading-tight">
                         ${title}
                     </h3>
 
-                    <p class="text-slate-600 dark:text-slate-300 mb-4 line-clamp-2">
+                    <p class="academic-body text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
                         ${subtitle}
                     </p>
 
-                    <div class="mb-4">
-                        <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">
+                    <div class="mb-4 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50">
+                        <p class="academic-caption text-xs mb-1 text-slate-500 dark:text-slate-400">
+                            AUTHORS
+                        </p>
+                        <p class="academic-body text-sm text-slate-700 dark:text-slate-300">
                             ${projectData.getFormattedAuthors(paper.authors)}
                         </p>
-                        ${paper.venue ? `<p class="text-sm text-slate-500 dark:text-slate-400">${paper.venue}</p>` : ''}
                     </div>
 
-                    <div class="flex flex-wrap gap-2 mb-4">
+                    <div class="flex flex-wrap gap-2 mb-6">
                         ${keywords.map(keyword => `<span class="keyword-tag">${keyword}</span>`).join('')}
                     </div>
                 </div>
 
-                <div class="flex flex-wrap gap-2 mt-auto">
+                <div class="flex flex-wrap gap-3 mt-auto pt-4 border-t border-slate-200 dark:border-slate-600">
                     ${this.createPaperLinks(paper.links)}
                 </div>
             </div>
@@ -364,24 +376,31 @@ class ProjectMaxwellApp {
 
     createPersonNameCard(person) {
         const nameCard = document.createElement('div');
-        nameCard.className = 'person-name-card';
+        nameCard.className = 'person-name-card group animate-slide-up';
         nameCard.setAttribute('title', person.name);
         nameCard.setAttribute('aria-label', person.name);
 
         const role = person.role;
+        const roleColor = this.getRoleColor(role);
 
         nameCard.innerHTML = `
-            <div class="flex items-center space-x-3">
-                <div class="avatar avatar-small bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-800 dark:to-primary-900 flex items-center justify-center text-primary-600 dark:text-primary-300 font-semibold text-sm">
+            <div class="flex items-center space-x-4">
+                <div class="avatar avatar-small bg-gradient-to-br ${roleColor} flex items-center justify-center text-white font-semibold text-sm ring-2 ring-white dark:ring-slate-800 group-hover:ring-4 transition-all duration-300">
                     ${person.photo ? `<img src="${person.photo}" alt="${person.name}" class="w-full h-full object-cover rounded-full">` : projectData.generateInitials(person.name)}
                 </div>
                 <div class="text-left">
-                    <div class="text-sm font-medium text-slate-900 dark:text-white">
+                    <div class="academic-body text-sm font-semibold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                         ${person.name}
                     </div>
-                    <div class="text-xs text-slate-500 dark:text-slate-400">
+                    <div class="academic-caption text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                         ${role}
                     </div>
+                    ${person.affiliation ? `<div class="academic-caption text-xs text-slate-400 dark:text-slate-500 mt-0.5">${person.affiliation}</div>` : ''}
+                </div>
+                <div class="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
                 </div>
             </div>
         `;
@@ -392,6 +411,19 @@ class ProjectMaxwellApp {
         });
 
         return nameCard;
+    }
+
+    getRoleColor(role) {
+        const roleColors = {
+            'Principal Investigator': 'from-blue-600 to-blue-800',
+            'Lead Researcher': 'from-purple-600 to-purple-800',
+            'Research Assistant': 'from-green-600 to-green-800',
+            'PhD Student': 'from-orange-600 to-orange-800',
+            'Master Student': 'from-teal-600 to-teal-800',
+            'Visiting Researcher': 'from-indigo-600 to-indigo-800',
+            'default': 'from-slate-600 to-slate-800'
+        };
+        return roleColors[role] || roleColors['default'];
     }
 
     // Utility Functions
