@@ -22,11 +22,11 @@ class ProjectMaxwellApp {
         this.theme = localStorage.getItem('project-maxwell-theme') || 'light';
 
         // Check system preference if no saved preference
-        if (!localStorage.getItem('project-maxwell-theme')) {
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                this.theme = 'dark';
-            }
-        }
+        // if (!localStorage.getItem('project-maxwell-theme')) {
+        //     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        //         this.theme = 'dark';
+        //     }
+        // }
 
         this.applyTheme();
         this.setupThemeToggle();
