@@ -1,0 +1,10 @@
+---
+import Base from "../layouts/Base.astro";
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+---
+<Base title="Page not found" noindex>
+  <header class="page-head"><div class="wrap">
+    <p class="label">404</p><h1>No field here</h1>
+    <p>The page you asked for does not exist. Try the <a href={import.meta.env.MAXWELL_PREVIEW ? `${base}index.html` : base}>home page</a> or the <a href={`${base}projects.html`}>projects</a>.</p>
+  </div></header>
+</Base>

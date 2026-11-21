@@ -40,3 +40,14 @@ build/
 
 # Local development files
 .local/
+
+# Astro
+.astro/
+tools/og.html
+
+
+# preview-only pages (logo choice, open decisions) and their notes: kept local, never in the public repo
+src/preview/
+src/data/photo-notes.ts
+# design reviews
+reviews/

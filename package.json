@@ -1,0 +1,23 @@
+{
+  "name": "project-maxwell-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "node tools/figures.mjs && astro build",
+    "preview": "astro preview",
+    "logos": "node tools/logos.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/source-serif-4": "^5.3.1",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "astro": "^7.3.8",
+    "katex": "^0.19.1"
+  },
+  "devDependencies": {
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "@fontsource/source-serif-4": "^5.3.1",
+    "d3-contour": "^4.0.3",
+    "opentype.js": "^2.0.0"
+  }
+}

@@ -1,147 +1,66 @@
-# Project Maxwell
+# OpenMaxwell
 
-**Project Maxwell** is a research project focused on advancing wireless communications through artificial intelligence. This repository contains the official project website showcasing our research papers, team members, and contributions to the field.
+Website of **OpenMaxwell**, an open research group on large language models and agents for wireless
+communications, led by [Xin Li](https://lixin.ai/) at Nanyang Technological University, Singapore.
 
-🌐 **Live Website**: [https://project-maxwell.github.io/](https://project-maxwell.github.io/)
+Site: https://openmaxwell.org
 
-## ✨ Features
+## How it works
 
-- **📱 Responsive Design**: Optimized for all devices and screen sizes
-- **🌓 Dark/Light Mode**: Automatic theme detection with manual toggle
-- **⚡ Fast Performance**: Lightweight HTML/CSS/JS with CDN resources
-- **♿ Accessibility**: WCAG 2.1 AA compliant with proper ARIA labels and semantic markup
-- **🔍 SEO Optimized**: Open Graph, Twitter Cards, JSON-LD structured data
-
-## 🏗️ Architecture
-
-This is a static website built with:
-
-- **HTML5** with semantic markup
-- **Tailwind CSS** (CDN) for styling and responsive design
-- **Vanilla JavaScript** for interactivity and data management
-- **GitHub Pages** for hosting and deployment
-
-### Directory Structure
+A static site built with [Astro](https://astro.build/). Every page is plain HTML with its content in it; the only
+script is the light/dark switch. GitHub Actions builds it and publishes `dist/` to GitHub Pages
+(`.github/workflows/deploy.yml`; Settings → Pages → Source must be "GitHub Actions").
 
 ```
-project-maxwell/
-├── css/
-│   └── styles.css          # Custom styles and component classes
-├── js/
-│   ├── app.js              # Main application logic
-│   ├── data.js             # Research papers and team data
-│   ├── i18n.js             # Translation utilities
-│   ├── papers.js           # Papers page functionality
-│   └── people.js           # People page functionality
-├── index.html              # Homepage
-├── papers.html             # Research papers page
-├── people.html             # Team members page
-├── 404.html                # Custom error page
-├── sitemap.xml             # SEO sitemap
-├── robots.txt              # Crawler instructions
-└── README.md               # This file
+npm ci
+npm run dev        # local server with live reload
+npm run build      # figures, then the site, into dist/
 ```
 
-## 🚀 Local Development
+## Where things live
 
-### Prerequisites
-
-- A modern web browser
-- A local web server (optional but recommended)
-
-### Setup
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/project-maxwell/project-maxwell.github.io.git
-   cd project-maxwell.github.io
-   ```
-
-2. **Serve locally** (choose one method):
-
-   **Option A: Python (recommended)**
-   ```bash
-   # Python 3
-   python -m http.server 8000
-   ```
-
-   **Option B: Node.js**
-   ```bash
-   npx serve .
-   ```
-
-   **Option C: PHP**
-   ```bash
-   php -S localhost:8000
-   ```
-
-3. **Open in browser**: Visit `http://localhost:8000`
-
-## 📝 Content Management
-
-### Adding Research Papers
-
-Edit `js/data.js` and add a new paper object to the `papers` array:
-
-```javascript
-{
-    id: 'paper-slug',
-    title: 'Paper Title',
-    subtitle: 'Paper Subtitle',
-    status: 'released', // 'released', 'preprint', 'in_submission'
-    year: 2024,
-    venue: 'Conference/Journal Name',
-    authors: ['Author 1', 'Author 2'],
-    links: {
-        website: 'https://example.com',
-        pdf: 'https://example.com/paper.pdf',
-        code: 'https://github.com/username/repo'
-    },
-    keywords: ['Keyword1', 'Keyword2'],
-    abstract: 'Paper abstract...'
-}
+```
+src/data/site.ts      name, one-line description, lead, GitHub organisation, the three research directions,
+                      which logo the site uses
+src/data/papers.ts    every paper, newest first (the first FEATURED appear on the home page)
+src/data/people.ts    the group
+src/pages/            home, projects, people, join, 404; papers.html redirects old links to projects.html
+src/styles/global.css colours (light and dark), type, layout
+tools/figures.mjs     the home page figure: electric field lines of an oscillating dipole, computed at build time
+tools/logos.mjs       logo variants A and B, written to public/brand/ (npm run logos)
+tools/og.mjs          the share card public/og.png and the PNG icons (how to render them is in the file)
+public/               served as is: brand/, og.png
 ```
 
-### Adding Team Members
+To add a paper, add an entry to `src/data/papers.ts` with facts checked against the paper itself, and push.
 
-Edit `js/data.js` and add a new person object to the `people` array:
+## Settings
 
-```javascript
-{
-    id: 'person-slug',
-    name: 'Full Name',
-    role: 'Position/Role',
-    affiliation: 'Institution Name',
-    links: {
-        homepage: 'https://personal-website.com',
-        scholar: 'https://scholar.google.com/citations?user=ID',
-        github: 'https://github.com/username'
-    },
-    bio: 'Short biography...',
-    type: 'member' // 'lead', 'member', 'advisor'
-}
-```
+- **Site URL**: `MAXWELL_SITE` in `astro.config.mjs` (default `https://openmaxwell.org`). It feeds canonical links,
+  the sitemap and the share card.
+- **Custom domain**: `public/CNAME` (openmaxwell.org), also set under Settings → Pages.
+- **GitHub organisation**: `github` / `githubName` in `src/data/site.ts`.
+- **Preview**: `MAXWELL_PREVIEW=1` adds two private pages (`/logo`, `/review`) for decisions still open;
+  `MAXWELL_BASE` sets the path the site is served under. Neither is used for a deploy.
 
-## 🚀 Deployment
+## Photo credits
 
-### GitHub Pages (Automatic)
+Member photos come from each person's own public pages and are used with the group lead's approval (11-21):
 
-1. **Push to main branch**: Changes are automatically deployed
-2. **Enable GitHub Pages**: Go to repository Settings → Pages → Source: Deploy from a branch
-3. **Select branch**: Choose `main` branch and `/ (root)` folder
+| Person | Source |
+| --- | --- |
+| Xin Li | https://lixin.ai/ |
+| Mengbing Liu | https://liumengbing.com/ (image: /images/mengbing_new.png) |
+| Yiyang Zhu | Google Scholar, https://scholar.google.com/citations?user=LWh42_8AAAAJ |
+| Jiancheng An | https://jiancheng-an.github.io/ (image: /images/JianchengAn.jpg) |
+| Chau Yuen | NTU DR-NTU profile, https://dr.ntu.edu.sg/entities/person/Chau-Yuen |
 
-### Manual Deployment
+People without a public photo (Li Wei, Wenhe Zhang) are shown with a field signature generated from their name
+(`src/lib/signature.ts`). To add or replace a photo, put a square 280 × 280 WebP in `public/people/`, set `photo` and
+`photoSource` in `src/data/people.ts`, and add a row here.
 
-For other hosting services:
+## Project figures
 
-1. **Upload files**: Upload all HTML, CSS, JS files to your web server
-2. **Configure**: Ensure server serves `index.html` for directory requests
-
-## 📧 Contact
-
-- **Project Lead**: [Xin Li](https://lixin.ai/)
-- **Institution**: Nanyang Technological University, Singapore
-
----
-
-**Built with ❤️ for the research community**
+RadioVISTA's card uses its Rome render and ray-traced field from radiovista.github.io. The WirelessMathBench-XL,
+WirelessMathBench and LACP cards are redrawn in the site's style (`src/components/illus/`) from the papers' own figures
+and text; WirelessMathBench's equations are typeset with KaTeX at build time.

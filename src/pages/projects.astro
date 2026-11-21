@@ -1,0 +1,31 @@
+---
+import Base from "../layouts/Base.astro";
+import PaperRow from "../components/PaperRow.astro";
+import PaperCard from "../components/PaperCard.astro";
+import { SITE } from "../data/site";
+import { PAPERS } from "../data/papers";
+import { LOOK } from "../lib/look";
+const jsonld = PAPERS.map((p) => ({
+  "@context": "https://schema.org", "@type": "ScholarlyArticle", headline: p.title, name: p.name,
+  author: p.authors.map((a) => ({ "@type": "Person", name: a.replace(/\*$/, "") })), datePublished: String(p.year),
+  ...(p.links[0] ? { url: p.links[0].url } : {}), ...(p.summary ? { abstract: p.summary } : {}),
+}));
+---
+<Base page="projects" title="Projects" jsonld={jsonld}
+  description={`Papers, benchmarks and datasets from ${SITE.name}: ${PAPERS.map((p) => p.name).join(", ")}.`}>
+  <header class="page-head">
+    <div class="wrap">
+      <p class="label">Projects</p>
+      <h1>Papers, benchmarks and datasets</h1>
+      <p>Each project asks whether a language model can do a piece of wireless engineering, and builds the
+        data or the checks needed to find out.</p>
+    </div>
+  </header>
+  <section class="section" style="border-bottom:0">
+    <div class="wrap">
+      {LOOK === "a"
+        ? <ol class="prows">{PAPERS.map((p, i) => <PaperRow paper={p} n={i + 1} />)}</ol>
+        : <div class="pcards pcards--all">{PAPERS.map((p, i) => <PaperCard paper={p} feature={i === 0} />)}</div>}
+    </div>
+  </section>
+</Base>

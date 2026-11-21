@@ -1,0 +1,8 @@
+---
+// Electric field lines of an oscillating dipole, computed by tools/figures.mjs at build time.
+import field from "../generated/field.json";
+---
+<svg viewBox={`0 0 ${field.width} ${field.height}`} aria-hidden="true" focusable="false">
+  {field.paths.map((p) => <path class={p.level < 0 ? "neg" : undefined} d={p.d} />)}
+  <rect class="src" x={field.cx - 1.5} y={field.cz - 9} width="3" height="18" />
+</svg>

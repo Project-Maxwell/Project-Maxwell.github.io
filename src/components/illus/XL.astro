@@ -1,0 +1,28 @@
+---
+// WirelessMathBench-XL construction, redrawn from Figure 1 and Section 2 of the paper (arXiv 2509.23219).
+// Every number below is stated in the paper; the test set itself is not shown.
+---
+<div class="illus illus--xl" role="img" aria-label="WirelessMathBench-XL pipeline: about 47,000 candidate papers filtered to a 970-paper pool, three task formats extracted, automated and expert review; 4,027 problems from 836 papers.">
+  <ol class="xl">
+    <li>
+      <span class="il-k">01 Collect</span>
+      <b class="il-n">≈47,000</b><span class="il-t">candidate arXiv papers, 24 categories, 2005–2025</span>
+      <span class="il-step">3,186 with substantial maths</span>
+      <span class="il-step">970 in the source pool</span>
+    </li>
+    <li>
+      <span class="il-k">02 Extract</span>
+      <b class="il-n">3</b><span class="il-t">task formats from each paper's LaTeX</span>
+      <span class="il-step">MCQ</span>
+      <span class="il-step">Fill-in 25 / 50 / 75%</span>
+      <span class="il-step">Full equation completion</span>
+    </li>
+    <li>
+      <span class="il-k">03 Verify</span>
+      <b class="il-n">77.4%</b><span class="il-t">accepted: 4,027 of 5,205</span>
+      <span class="il-step">GPT-4o rubric, 5 points</span>
+      <span class="il-step">5 expert reviewers</span>
+    </li>
+  </ol>
+  <p class="xl__out"><span><b>4,027</b> problems</span><i></i><span><b>836</b> papers</span><i></i><span><b>20</b> subfields</span><i></i><span><b>95.7%</b> zero-hit audit</span></p>
+</div>

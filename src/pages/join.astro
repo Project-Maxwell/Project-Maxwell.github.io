@@ -1,0 +1,55 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../data/site";
+const PREVIEW = Boolean(import.meta.env.MAXWELL_PREVIEW);
+---
+<Base page="join" title="Join us" description={`How to join ${SITE.name}, how projects run, and how authorship is decided.`}>
+  <header class="page-head">
+    <div class="wrap">
+      <p class="label">Join us</p>
+      <h1>Work with us</h1>
+      <p>{SITE.name} is an open group. {SITE.lead.name} leads it and sets the research questions; students and
+        researchers carry out the projects, from building the data to writing the paper.</p>
+    </div>
+  </header>
+  <section class="section" style="border-bottom:0">
+    <div class="wrap join-grid">
+      <div class="prose">
+        <h2>Who we are looking for</h2>
+        <p>Students and researchers who work on large language models or on wireless communications, and who want to
+          test what language models can and cannot do on real engineering problems. You do not need both backgrounds,
+          and you do not need to be at NTU: the group is open to people at any university or institute.</p>
+
+        <h2>How to start</h2>
+        <ol>
+          <li><strong>Write to {SITE.lead.name}</strong> at <a href={`mailto:${SITE.lead.email}`}>{SITE.lead.email}</a>{" "}
+            with a few lines on what you would like to work on and anything you have built before.</li>
+          <li><strong>Read one of our papers</strong> closely, ideally the one nearest your interest, and come with a
+            question it leaves open.</li>
+          <li><strong>Start with a scoped piece</strong> of an existing project before leading your own.</li>
+        </ol>
+
+        <h2>How projects run</h2>
+        <p>There is no fixed meeting schedule. Each project meets when the work needs it, and the people on it agree how
+          often.</p>
+
+        <h2>Authorship</h2>
+        {PREVIEW && <div class="todo"><b>DRAFT · Xin</b>Wording below is a draft for Xin to confirm.</div>}
+        <p>Authorship follows substantive contribution. An author has contributed to the idea, the data, the experiments
+          or the analysis, has helped write or revise the paper, and can answer for the work, in the spirit of the
+          ICMJE criteria; individual contributions are recorded with the CRediT roles.</p>
+        <p>Author order is agreed when a project starts. If contributions change, any change to the order is discussed
+          openly and in advance.</p>
+        <p>People who contribute to a dataset or benchmark without meeting these criteria are named in its
+          acknowledgements or contributor list.</p>
+      </div>
+      <aside class="aside-card" aria-label="Contact">
+        <p class="label">Contact</p>
+        <p><a href={SITE.lead.url}>{SITE.lead.name}</a><br>{SITE.institution.name}, {SITE.institution.place}</p>
+        <p><a href={`mailto:${SITE.lead.email}`}>{SITE.lead.email}</a></p>
+        {PREVIEW && <p class="todo" style="margin-top:8px"><b>DRAFT · Xin</b>Contact address to confirm.</p>}
+        <p><a href={SITE.github}>GitHub: {SITE.githubName}</a></p>
+      </aside>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,130 @@
+---
+import Base from "../layouts/Base.astro";
+import Field from "../components/Field.astro";
+import PaperRow from "../components/PaperRow.astro";
+import PaperCard from "../components/PaperCard.astro";
+import Avatar from "../components/Avatar.astro";
+import NewsList from "../components/NewsList.astro";
+import { SITE, DIRECTIONS } from "../data/site";
+import { PAPERS, FEATURED } from "../data/papers";
+import { PEOPLE } from "../data/people";
+import { LOOK, BASE } from "../lib/look";
+const featured = PAPERS.slice(0, FEATURED);
+const lead = featured[0];   // the feature card: WirelessMathBench-XL (Xin, 11-21 20:06)
+const heroStats = [
+  { value: "4,027", label: "problems in WirelessMathBench-XL" },
+  { value: "100", label: "ray-traced cities in RadioVISTA" },
+  { value: "19", label: "models tested on radio fields" },
+];
+---
+<Base page="home">
+  {LOOK === "a" ? (
+    <section class="hero hero--a" aria-labelledby="h1">
+      <div class="hero__field"><Field /></div>
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="label">An open research group · {SITE.institution.name}</p>
+          <h1 id="h1">LLMs and agents for <em>wireless</em>.</h1>
+          <p class="lede">We use wireless communications as a testbed for large language models and agents. Its problems
+            come with derivations, simulators and measurements, so a model's answer can be checked against physics
+            rather than judged by taste.</p>
+          <p class="hero__cta"><a class="btn" href={`${BASE}projects.html`}>See the projects</a><a class="btn btn--ghost" href={`${BASE}join.html`}>Join the group</a></p>
+        </div>
+        <dl class="hero__stats">
+          {heroStats.map((s) => <div><dd>{s.value}</dd><dt>{s.label}</dt></div>)}
+        </dl>
+      </div>
+      <p class="wrap fig-cap"><b>Fig. 1</b> Electric field lines of an oscillating dipole at ωt = 0.35, computed from Maxwell's
+        equations when this page is built: near the source the loops close on it; further out they detach and travel as a wave.</p>
+    </section>
+  ) : (
+    <section class="hero hero--b" aria-labelledby="h1">
+      <div class="hero__field"><Field /></div>
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="label">An open research group · {SITE.institution.name}</p>
+          <h1 id="h1">LLMs and agents for <em>wireless</em>.</h1>
+          <p class="lede">We use wireless communications as a testbed for large language models and agents: problems that
+            come with derivations, simulators and measurements, so every answer can be checked against physics.</p>
+          <p class="hero__cta"><a class="btn" href={`${BASE}projects.html`}>See the projects</a><a class="btn btn--ghost" href={`${BASE}join.html`}>Join the group</a></p>
+        </div>
+        <aside class="hero__news" aria-labelledby="latest-h">
+          <p class="label" id="latest-h">Latest</p>
+          <NewsList />
+        </aside>
+      </div>
+      <dl class="wrap hero__stats">
+        {heroStats.map((s) => <div><dd>{s.value}</dd><dt>{s.label}</dt></div>)}
+      </dl>
+    </section>
+  )}
+
+  {LOOK === "a" && (
+    <section class="latest" aria-labelledby="latest-h">
+      <div class="wrap latest__grid">
+        <p class="label" id="latest-h">Latest</p>
+        <NewsList />
+      </div>
+    </section>
+  )}
+
+  <section class="section dirs-section" aria-labelledby="dirs-h">
+    <div class="wrap">
+      <div class="section__head"><div><p class="label">Directions</p><h2 id="dirs-h">Three questions we work on</h2></div></div>
+      <div class="dirs">
+        {DIRECTIONS.map((d) => (
+          <div class="dir" data-dir={d.id}>
+            <p class="dir__n">{d.n}</p>
+            <h3>{d.name}</h3>
+            <p>{d.question}</p>
+            <ul aria-label={`${d.name} papers`}>
+              {PAPERS.filter((p) => p.direction === d.id).map((p) => <li><a href={`${BASE}projects.html#${p.id}`}>{p.name}</a></li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="proj-h">
+    <div class="wrap">
+      <div class="section__head">
+        <div><p class="label">Projects</p><h2 id="proj-h">Papers, benchmarks and datasets</h2></div>
+        <a class="section__more" href={`${BASE}projects.html`}>All projects →</a>
+      </div>
+      {LOOK === "a" ? (
+        <ol class="prows">{featured.map((p, i) => <PaperRow paper={p} n={i + 1} />)}</ol>
+      ) : (
+        <div class="pcards">
+          <PaperCard paper={lead} feature />
+          {featured.slice(1).map((p) => <PaperCard paper={p} />)}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="people-h">
+    <div class="wrap">
+      <div class="section__head">
+        <div><p class="label">People</p><h2 id="people-h">The group</h2></div>
+        <a class="section__more" href={`${BASE}people.html`}>Everyone →</a>
+      </div>
+      <ul class="faces">
+        {PEOPLE.map((p) => (
+          <li><a href={`${BASE}people.html#${p.id}`}><Avatar person={p} size={64} /><b>{p.name}</b><span>{p.role ?? p.affiliation}</span></a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section join-band" aria-labelledby="join-h">
+    <div class="wrap cta-band">
+      <div><p class="label">Join us</p><h2 id="join-h">{SITE.name} is open to students and researchers who want to build with us.</h2></div>
+      <div>
+        <p>If you work on language models or on wireless systems and have a benchmark, a dataset or an agent in mind,
+          read how projects run and how authorship works.</p>
+        <a class="btn" href={`${BASE}join.html`}>How to join</a>
+      </div>
+    </div>
+  </section>
+</Base>

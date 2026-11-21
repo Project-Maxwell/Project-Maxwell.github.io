@@ -1,0 +1,11 @@
+---
+// Author list; group members link to their entry on the People page.
+import { byName } from "../data/people";
+const { authors } = Astro.props as { authors: string[] };
+const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
+---
+<p class="paper__authors">{authors.map((a, i) => {
+  const name = a.replace(/\*$/, ""), star = a.endsWith("*") ? "*" : "";
+  const p = byName.get(name);
+  return <>{i > 0 && ", "}{p ? <a href={`${base}people.html#${p.id}`}>{name}</a> : name}{star && <sup>*</sup>}</>;
+})}</p>
