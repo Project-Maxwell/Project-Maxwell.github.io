@@ -26,7 +26,7 @@ export const PEOPLE: Person[] = [
   { id: "yiyang-zhu", name: "Yiyang Zhu", role: "PhD student", group: "member", affiliation: EEE, photo: "people/yiyang-zhu.webp",
     photoSource: { page: "https://scholar.google.com/citations?user=LWh42_8AAAAJ", image: "https://scholar.googleusercontent.com/citations?view_op=medium_photo&user=LWh42_8AAAAJ&citpid=3", kind: "Google Scholar", consent: "given" } },
   { id: "wenhe-zhang", name: "Wenhe Zhang", role: "Master's student", group: "member", affiliation: EEE },
-  { id: "li-wei", name: "Li Wei", group: "member", affiliation: "Zhejiang University" },
+  { id: "li-wei", name: "Li Wei", role: "Professor", group: "member", affiliation: "Zhejiang University" },
   { id: "jiancheng-an", name: "Jiancheng An", role: "Professor", group: "member", affiliation: "School of Electronic Science and Engineering, UESTC", photo: "people/jiancheng-an.webp",
     photoSource: { page: "https://jiancheng-an.github.io/", image: "https://jiancheng-an.github.io/images/JianchengAn.jpg", kind: "personal homepage", consent: "given" } },
   { id: "chau-yuen", name: "Chau Yuen", role: "Advisor · Professor", group: "advisor", affiliation: EEE, url: "https://blogs.ntu.edu.sg/chau-yuen/", photo: "people/chau-yuen.webp",
