@@ -1,9 +1,0 @@
----
-import { NEWS } from "../data/news";
-const { limit = NEWS.length, cls = "" } = Astro.props;
----
-<ol class:list={["news", cls]}>
-  {NEWS.slice(0, limit).map((n) => (
-    <li><time>{n.date}</time><p>{n.text}{n.link && <> <a href={n.link.url}>{n.link.label}</a></>}</p></li>
-  ))}
-</ol>

@@ -1,9 +1,0 @@
----
-// The logo mark (variant from SITE.logo): the M in currentColor, its arcs in --field.
-import { SITE } from "../data/site";
-import markA from "../generated/mark-a.svg.txt?raw";
-import markB from "../generated/mark-b.svg.txt?raw";
-const { variant = SITE.logo, ...rest } = Astro.props;
-const inner = variant === "a" ? markA : markB;
----
-<svg viewBox="4 -12 92 110" aria-hidden="true" focusable="false" {...rest} set:html={inner} />

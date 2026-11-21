@@ -1,8 +1,0 @@
----
-const { stats = [], cls = "" } = Astro.props as { stats?: { value: string; label: string }[]; cls?: string };
----
-{stats.length > 0 && (
-  <dl class:list={["stats", cls]} style={`--cols:${stats.length === 4 ? 2 : Math.min(stats.length, 3)}`}>
-    {stats.map((s) => <div><dt>{s.label}</dt><dd>{s.value}</dd></div>)}
-  </dl>
-)}

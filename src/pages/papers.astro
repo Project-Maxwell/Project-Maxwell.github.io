@@ -1,9 +1,0 @@
----
-// The 2025 site's papers.html: kept so old links land on Projects.
-const base = import.meta.env.BASE_URL.replace(/\/?$/, "/");
-const to = `${base}projects.html`;
-import { SITE } from "../data/site";
----
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>{`Projects — ${SITE.name}`}</title>
-<meta http-equiv="refresh" content={`0; url=${to}`}><link rel="canonical" href={new URL("projects.html", Astro.site).href}><meta name="robots" content="noindex"></head>
-<body><p>Moved to <a href={to}>Projects</a>.</p></body></html>
