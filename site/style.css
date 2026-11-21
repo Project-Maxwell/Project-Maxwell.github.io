@@ -221,7 +221,7 @@ mark { background: var(--lime); color: var(--ink); padding: .04em .22em; margin:
 .join__mail {
   display: block; text-decoration: none;
   font-stretch: var(--wide); font-weight: 800; letter-spacing: -.03em; line-height: 1;
-  font-size: clamp(30px, 6.5vw, 100px);
+  font-size: clamp(26px, 5.4vw, 84px);   /* sized for contact@openmaxwell.org on one line */
   margin: clamp(44px, 6vw, 92px) 0 0 -.03em;
 }
 .join__mail span { white-space: nowrap; }
@@ -341,7 +341,7 @@ mark { background: var(--lime); color: var(--ink); padding: .04em .22em; margin:
   .roster li { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
   .year__list li { grid-template-columns: 3.2em 1fr; }
   .year__list a { white-space: normal; }
-  .join__mail { font-size: 9.3vw; line-height: 1.04; }
+  .join__mail { font-size: 7.8vw; line-height: 1.04; }
   .links { gap: 7px; }
   .links a { padding: 9px 10px 8px; font-size: 13.5px; }
   .join__mail span { display: block; }
