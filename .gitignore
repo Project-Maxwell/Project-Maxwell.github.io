@@ -51,3 +51,6 @@ src/preview/
 src/data/photo-notes.ts
 # design reviews
 reviews/
+
+# local screenshots for review, never published
+shots-1121/

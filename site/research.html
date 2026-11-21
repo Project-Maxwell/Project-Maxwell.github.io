@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research · OpenMaxwell</title>
+<meta name="description" content="The five papers of OpenMaxwell, an open research group on large language models and agents for wireless communications, in three directions: reasoning, perception and agents.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<link rel="canonical" href="https://openmaxwell.org/research.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="OpenMaxwell">
+<meta property="og:title" content="Research · OpenMaxwell">
+<meta property="og:description" content="The five papers of OpenMaxwell, an open research group on large language models and agents for wireless communications, in three directions: reasoning, perception and agents.">
+<meta property="og:url" content="https://openmaxwell.org/research.html">
+<meta property="og:image" content="https://openmaxwell.org/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#2F7BD8">
+<link rel="icon" href="brand/icon.svg" type="image/svg+xml">
+<link rel="icon" href="brand/icon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="brand/icon-180.png">
+<link rel="preload" href="fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="./" aria-label="OpenMaxwell, home">
+      <svg class="brand__mark" viewBox="4 -14 92 110" aria-hidden="true">
+        <path d="M14 24.5A76.5 76.5 0 0 1 86 24.5" fill="none" stroke="#2F7BD8" stroke-width="4"/>
+        <path d="M14 24.5A42.4 42.4 0 0 1 86 24.5" fill="none" stroke="#2F7BD8" stroke-width="4"/>
+        <path d="M14 24.5A36.14 36.14 0 0 1 86 24.5" fill="none" stroke="#2F7BD8" stroke-width="4"/>
+        <path d="M14 92V30L50 66L86 30V92" fill="none" stroke="#16325C" stroke-width="13" stroke-miterlimit="10"/>
+      </svg>
+      <span class="brand__name">OpenMaxwell</span>
+    </a>
+    <nav class="nav" aria-label="Pages">
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="news.html">News</a>
+      <a href="people.html">People</a>
+    </nav>
+    <a class="top__join" href="join.html">Join us</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero hero--page">
+  <svg class="hero__waves" viewBox="0 0 900 900" aria-hidden="true" preserveAspectRatio="xMaxYMin meet">
+    <g fill="none" stroke="#2F7BD8">
+      <circle cx="900" cy="0" r="110" stroke-width="7"/>
+      <circle cx="900" cy="0" r="200" stroke-width="6"/>
+      <circle cx="900" cy="0" r="290" stroke-width="5"/>
+      <circle cx="900" cy="0" r="380" stroke-width="4"/>
+      <circle cx="900" cy="0" r="470" stroke-width="3.2"/>
+      <circle cx="900" cy="0" r="560" stroke-width="2.4"/>
+      <circle cx="900" cy="0" r="650" stroke-width="1.8"/>
+      <circle cx="900" cy="0" r="740" stroke-width="1.2"/>
+      <circle cx="900" cy="0" r="830" stroke-width=".8"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <p class="kicker"><a href="./">OpenMaxwell</a></p>
+    <h1 class="hero__h">Research</h1>
+    <p class="hero__mission">Three questions, five papers. Wireless communications is the testbed: problems that come with derivations, simulators and measurements, so every answer can be checked against physics.</p>
+  </div>
+</section>
+
+<section class="asks">
+  <div class="wrap asks__in">
+    <div class="ask">
+      <p class="dir__n">01</p>
+      <h2 class="dir__name">Reasoning</h2>
+      <p class="dir__q">Can a model derive the equations an engineer would write, and can we tell when it has not?</p>
+      <p class="ask__papers"><a href="#wirelessmathbench-xl">WirelessMathBench&#8209;XL</a><a href="#wirelessmathbench">WirelessMathBench</a></p>
+    </div>
+    <div class="ask">
+      <p class="dir__n">02</p>
+      <h2 class="dir__name">Perception</h2>
+      <p class="dir__q">Can a model infer the radio field a city shapes from what an image or a few measurements show?</p>
+      <p class="ask__papers"><a href="#radiovista">RadioVISTA</a><a href="#radio2map">Radio2Map</a></p>
+    </div>
+    <div class="ask">
+      <p class="dir__n">03</p>
+      <h2 class="dir__name">Agents</h2>
+      <p class="dir__q">How should agents exchange messages and tasks across a network, and what has to be standard?</p>
+      <p class="ask__papers"><a href="#lacp">LACP</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="entries">
+  <div class="wrap">
+    <article class="entry" id="wirelessmathbench-xl">
+      <div class="entry__head">
+        <p class="dir__n">Reasoning · Lead project</p>
+        <h2 class="entry__name"><a href="https://lixin.ai/WirelessMathBench-XL/">WirelessMathBench&#8209;XL</a></h2>
+        <p><span class="tag tag--hot">NeurIPS 2026</span></p>
+      </div>
+      <div class="entry__body">
+        <figure class="plate">
+          <img src="figures/fig1-wmbxl.webp" width="1800" height="763" alt="Figure 1 of the paper: paper collection (about 47,000 crawled, 970 selected), formula extraction into multiple-choice, fill-in and full-equation tasks, and two-tier quality assurance.">
+          <figcaption>Figure 1 of the paper: how the benchmark is built. The MCQ, fill-in and FEC counts are candidates before quality review; the release keeps 4,027 problems from 836 of the 970 selected papers.</figcaption>
+        </figure>
+        <div class="entry__text">
+          <h3 class="entry__title">WirelessMathBench-XL: An Auditable Benchmark for Wireless Mathematical Reasoning</h3>
+          <p class="entry__sum">4,027 problems drawn from 836 arXiv papers across 20 wireless subfields, each carrying its own text-overlap evidence against public pretraining data, so a score can be audited rather than trusted.</p>
+          <p class="paper__authors"><b>Xin Li</b>, Mengbing Liu, Yiyang Zhu, Wenhe Zhang, Li Wei, Jiancheng An, Chau Yuen</p>
+          <p class="links">
+            <a href="https://lixin.ai/WirelessMathBench-XL/">Project</a>
+            <a href="https://arxiv.org/abs/2509.23219">Paper</a>
+            <a href="https://github.com/LiXin97/WirelessMathBench-XL">Code</a>
+            <a href="https://huggingface.co/datasets/XINLI1997/WirelessMATHBench-XL">Data</a>
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry" id="radiovista">
+      <div class="entry__head">
+        <p class="dir__n">Perception</p>
+        <h2 class="entry__name"><a href="https://radiovista.github.io/">RadioVISTA</a></h2>
+        <p><span class="tag">Preprint</span></p>
+      </div>
+      <div class="entry__body">
+        <figure class="photo">
+          <img loading="lazy" src="figures/radiovista-rome.webp" width="1200" height="750" alt="Rome: the ray-traced radio field (left) and the rendered city (right).">
+          <figcaption>Rome, 2 km across: the ray-traced radio field (left) and the city it comes from (right).</figcaption>
+        </figure>
+        <div class="entry__text">
+          <h3 class="entry__title">Seeing the Invisible: How Vision-Language Models Read, Predict and Trace Radio Fields</h3>
+          <p class="entry__sum">A benchmark and training dataset for visual reasoning about invisible radio fields, built by an engine that turns any coordinate on Earth into a ray-traceable city.</p>
+          <dl class="facts">
+            <div><dt>100</dt><dd>cities on 6 continents</dd></div>
+            <div><dt>12</dt><dd>tasks with exact answers</dd></div>
+            <div><dt>19</dt><dd>models evaluated</dd></div>
+          </dl>
+          <p class="paper__authors">Yiyang Zhu, <b>Xin Li</b>, Guangyuan Liu, Ziheng Liu, Jiayi Zhang, Chau Yuen</p>
+          <p class="links">
+            <a href="https://radiovista.github.io/">Project</a>
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry" id="radio2map">
+      <div class="entry__head">
+        <p class="dir__n">Perception</p>
+        <h2 class="entry__name">Radio2Map</h2>
+        <p><span class="tag">Preprint</span></p>
+      </div>
+      <div class="entry__body">
+        <div class="entry__text">
+          <h3 class="entry__title">Radio2Map: Reading 3D Cities from Sparse Radio Measurements with an Image Editor</h3>
+          <p class="entry__sum">Reconstructs a city's 3D geometry from a sparse set of radio measurements, using an image-editing model. The paper and its figures go public with the arXiv release.</p>
+          <p class="paper__authors"><b>Xin Li</b>, Yiyang Zhu, Chau Yuen</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry" id="lacp">
+      <div class="entry__head">
+        <p class="dir__n">Agents</p>
+        <h2 class="entry__name"><a href="https://lixin.ai/LACP/">LACP</a></h2>
+        <p><span class="tag tag--hot">AI4NextG @ NeurIPS 2025</span></p>
+      </div>
+      <div class="entry__body">
+        <figure class="plate">
+          <img loading="lazy" src="figures/fig1-lacp.webp" width="1800" height="787" alt="Figure 1 of the paper: the same ordering scenario without LACP (a) and with LACP (b).">
+          <figcaption>Figure 1 of the paper. The same ordering scenario without LACP (a) and with it (b).</figcaption>
+        </figure>
+        <div class="entry__text">
+          <h3 class="entry__title">LLM Agent Communication Protocol (LACP) Requires Urgent Standardization: A Telecom-Inspired Protocol is Necessary</h3>
+          <p class="entry__sum">A position paper: LLM agents need one telecom-style communication standard before today's ad-hoc protocols entrench. LACP has three layers (semantic, transactional, transport) with authentication and transactional integrity in the core.</p>
+          <p class="paper__authors"><b>Xin Li</b>, Mengbing Liu, Chau Yuen</p>
+          <p class="links">
+            <a href="https://lixin.ai/LACP/">Project</a>
+            <a href="https://arxiv.org/abs/2510.13821">Paper</a>
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="entry" id="wirelessmathbench">
+      <div class="entry__head">
+        <p class="dir__n">Reasoning</p>
+        <h2 class="entry__name"><a href="https://lixin.ai/WirelessMathBench/">WirelessMathBench</a></h2>
+        <p><span class="tag tag--hot">ACL 2025 Findings</span></p>
+      </div>
+      <div class="entry__body">
+        <figure class="plate plate--narrow">
+          <img loading="lazy" src="figures/fig1-wmb.webp" width="1600" height="1000" alt="Figure 1 of the paper: an example problem on wireless channel reflection modelling, with a multiple-choice question.">
+          <figcaption>Figure 1 of the paper. An example problem: model the effective channel of a double-RIS system.</figcaption>
+        </figure>
+        <div class="entry__text">
+          <h3 class="entry__title">WirelessMathBench: A Mathematical Modeling Benchmark for LLMs in Wireless Communications</h3>
+          <p class="entry__sum">The first benchmark for LLM mathematical modeling in wireless communications; WirelessMathBench-XL extends it.</p>
+          <dl class="facts">
+            <div><dt>587</dt><dd>questions</dd></div>
+            <div><dt>40</dt><dd>source papers</dd></div>
+            <div><dt>38.05%</dt><dd>best accuracy (DeepSeek-R1)</dd></div>
+          </dl>
+          <p class="paper__authors"><b>Xin Li</b>, Mengbing Liu, Li Wei, Jiancheng An, Mérouane Debbah, Chau Yuen</p>
+          <p class="links">
+            <a href="https://lixin.ai/WirelessMathBench/">Project</a>
+            <a href="https://arxiv.org/abs/2505.14354">Paper</a>
+            <a href="https://github.com/LiXin97/WirelessMathBench">Code</a>
+            <a href="https://huggingface.co/datasets/XINLI1997/WirelessMathBench">Data</a>
+          </p>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__in">
+    <p><a href="./">OpenMaxwell</a> · LLMs and agents for wireless</p>
+    <p class="foot__nav"><a href="research.html">Research</a><a href="news.html">News</a><a href="people.html">People</a><a href="join.html">Join us</a></p>
+    <p><a href="https://www.ntu.edu.sg/">Nanyang Technological University</a>, Singapore · <a href="https://github.com/project-maxwell">GitHub</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

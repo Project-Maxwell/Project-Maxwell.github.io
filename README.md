@@ -7,11 +7,15 @@ Site: https://openmaxwell.org
 
 ## How it works
 
-A single static page in `site/`, with no build step and no JavaScript. GitHub Actions (`.github/workflows/deploy.yml`) publishes
+A small static site in `site/` (home page plus four sub-pages), with no build step and no JavaScript. GitHub Actions (`.github/workflows/deploy.yml`) publishes
 `site/` to GitHub Pages on every push to `master` (Settings → Pages → Source: GitHub Actions; custom domain openmaxwell.org).
 
 ```
-site/index.html, style.css   the whole page: hero, lead project, research, news, people, join
+site/index.html              home, the overview: hero, lead project, research, latest news, people in brief, join
+site/research.html           all five papers in full; news.html, people.html, join.html likewise (hand-written HTML:
+                             a fact that changes must be edited on the home page and on its sub-page)
+site/projects.html, papers.html   redirects to research.html
+site/style.css               one stylesheet for all pages; screens 1700px and wider are scaled up with `zoom`
 site/fonts/                  Archivo (self-hosted, SIL OFL 1.1)
 site/figures/                each paper's own Figure 1; RadioVISTA's Rome render from radiovista.github.io
 site/brand/                  favicons
