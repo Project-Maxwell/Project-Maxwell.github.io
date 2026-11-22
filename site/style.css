@@ -124,7 +124,8 @@ figcaption { font-size: 14.5px; letter-spacing: .015em; line-height: 1.35; color
 .lead__sum { font-size: clamp(23px, 2.75vw, 40px); line-height: 1.17; letter-spacing: -.015em; font-weight: 520; text-wrap: pretty; }
 .lead__sum b { color: var(--lime); font-weight: 780; }
 .lead__authors { font-size: 15.5px; margin-top: clamp(20px, 2vw, 30px); opacity: .94; }
-.lead__authors b { font-weight: 750; }
+.lead__authors a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; text-decoration-color: rgba(255,255,255,.45); }
+.lead__authors a:hover { text-decoration-color: currentColor; }
 .lead__fig { margin: 0; }
 .lead__fig img { display: block; width: 100%; height: auto; }
 .lead__fig figcaption { color: var(--ink); }
@@ -159,7 +160,8 @@ figcaption { font-size: 14.5px; letter-spacing: .015em; line-height: 1.35; color
 .paper__name a { text-decoration: none; }
 .paper__title { font-weight: 620; font-size: 18px; line-height: 1.3; margin-top: 10px; }
 .paper__authors { font-size: 15px; color: var(--ink-soft); margin-top: 10px; }
-.paper__authors b { color: var(--ink); font-weight: 720; }
+.paper__authors a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; text-decoration-color: rgba(22,50,92,.3); }
+.paper__authors a:hover { color: var(--ink); text-decoration-color: currentColor; }
 .paper__sum { font-size: 17px; }
 .paper__note { color: var(--ink-soft); margin-top: 6px; }
 .paper__note a { color: var(--ink); font-weight: 650; }
