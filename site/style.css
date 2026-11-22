@@ -51,7 +51,7 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 .skip:focus { left: 12px; top: 12px; background: var(--white); padding: 8px 12px; z-index: 10; }
 
 /* small label voice: condensed, upper-case */
-.kicker, .tag, .lead__dir, .dir__n, .roster__role b, .join__sub, .nav a, time, .facts dd, figcaption, .foot {
+.kicker, .tag, .dir__n, .roster__role b, .join__sub, .nav a, time, .facts dd, figcaption, .foot {
   font-stretch: var(--narrow);
 }
 
@@ -107,28 +107,6 @@ a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 figcaption { font-size: 14.5px; letter-spacing: .015em; line-height: 1.35; color: var(--ink-soft); margin-top: 12px; }
 .plate figcaption { margin-top: clamp(8px, 1vw, 14px); }
 
-/* ── lead project ── */
-.lead { background: var(--field); color: var(--cream); padding: clamp(26px, 3vw, 40px) 0 clamp(44px, 5.4vw, 80px); }
-.lead__tags { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-.lead__dir { text-transform: uppercase; letter-spacing: .09em; font-weight: 600; font-size: 15px; }
-.lead__name {
-  font-stretch: var(--wide); font-weight: 800; letter-spacing: -.03em; line-height: 1;
-  font-size: clamp(27px, 6.35vw, 92px);
-  margin: .14em 0 .3em -.03em;
-  white-space: nowrap;
-}
-.lead__name a { text-decoration: none; }
-.lead__name a:hover { color: var(--lime); }
-.lead__title { font-stretch: 110%; font-weight: 650; font-size: clamp(18px, 1.9vw, 27px); line-height: 1.18; letter-spacing: -.01em; margin-top: -.35em; }
-.lead__grid { display: grid; grid-template-columns: 7fr 5fr; gap: clamp(28px, 5vw, 84px); align-items: start; margin-top: clamp(24px, 3vw, 44px); }
-.lead__sum { font-size: clamp(23px, 2.75vw, 40px); line-height: 1.17; letter-spacing: -.015em; font-weight: 520; text-wrap: pretty; }
-.lead__sum b { color: var(--lime); font-weight: 780; }
-.lead__authors { font-size: 15.5px; margin-top: clamp(20px, 2vw, 30px); opacity: .94; }
-.lead__authors a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; text-decoration-color: rgba(255,255,255,.45); }
-.lead__authors a:hover { text-decoration-color: currentColor; }
-.lead__fig { margin: 0; }
-.lead__fig img { display: block; width: 100%; height: auto; }
-.lead__fig figcaption { color: var(--ink); }
 
 /* ── link rows ── */
 .links { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 20px; }
@@ -163,11 +141,7 @@ figcaption { font-size: 14.5px; letter-spacing: .015em; line-height: 1.35; color
 .paper__authors a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .18em; text-decoration-color: rgba(22,50,92,.3); }
 .paper__authors a:hover { color: var(--ink); text-decoration-color: currentColor; }
 .paper__sum { font-size: 17px; }
-.paper__note { color: var(--ink-soft); margin-top: 6px; }
-.paper__note a { color: var(--ink); font-weight: 650; }
-.paper__note a:hover { color: var(--blue); }
 
-.paper--ref { padding-bottom: clamp(26px, 3vw, 40px); border-bottom: 1.5px solid var(--paper-2); margin-bottom: calc(-1 * clamp(8px, 1vw, 16px)); }
 .paper--side { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 2.6vw, 36px); align-items: start; }
 .paper--side .paper__sum { margin-top: 12px; }
 .paper__fig--photo img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; }
@@ -306,7 +280,6 @@ mark { background: var(--lime); color: var(--ink); padding: .04em .22em; margin:
   .jrow { gap: 14px; }
   .dir__head { position: static; }
   .dir__q { max-width: 30em; }
-  .lead__grid { grid-template-columns: 1fr; }
   .join__grid { grid-template-columns: 1fr; }
   .join__cols { grid-column: auto; }
   .roster li { grid-template-columns: 1fr 1fr; }
@@ -326,8 +299,6 @@ mark { background: var(--lime); color: var(--ink); padding: .04em .22em; margin:
   .hero__h { font-size: 12.6vw; line-height: .95; }
   .br-m { display: inline; }
   .br-d { display: none; }
-  .lead__name { font-stretch: 100%; font-size: 8.1vw; letter-spacing: -.035em; }
-  .lead__title { margin-top: 2px; }
   .paper--side, .paper__body--split { grid-template-columns: 1fr; gap: 16px; }
   .paper__body--split { margin-top: 16px; }
   .plate { padding: 8px; }
@@ -359,8 +330,6 @@ mark { background: var(--lime); color: var(--ink); padding: .04em .22em; margin:
 .brand__name { font-size: 25px; font-weight: 800; letter-spacing: -.005em; }
 .hero__h { font-weight: 800; font-size: clamp(54px, 10.4vw, 148px); line-height: .88; letter-spacing: -.015em; word-spacing: .05em; margin-left: -.03em; }
 .hero--page .hero__h { font-size: clamp(56px, 9.6vw, 136px); }
-.lead__name { font-size: clamp(34px, 8.6vw, 122px); letter-spacing: -.018em; line-height: .95; }
-.lead__title { font-stretch: 88%; font-weight: 680; letter-spacing: 0; font-size: clamp(20px, 2.15vw, 31px); margin-top: -.1em; }
 .sec__h, .join__h { font-size: clamp(48px, 6.6vw, 96px); letter-spacing: -.018em; line-height: .92; }
 .dir__name { font-size: clamp(36px, 3.9vw, 58px); letter-spacing: -.012em; font-weight: 800; line-height: 1; }
 .paper__name { font-size: clamp(29px, 2.85vw, 41px); letter-spacing: -.01em; font-weight: 800; }
@@ -376,7 +345,6 @@ mark { background: var(--lime); color: var(--ink); padding: .04em .22em; margin:
 @media (max-width: 640px) {
   .hero__h { font-size: 18vw; line-height: .88; }
   .hero--page .hero__h { font-size: 18.5vw; }
-  .lead__name { font-stretch: 76%; font-size: 9.3vw; letter-spacing: -.018em; }
   .join__mail { font-size: 11.3vw; line-height: .98; }
   .entry__name { font-size: min(32px, 9.4vw); }   /* "WirelessMathBench-XL" does not break; fits down to 320 px */
 }
